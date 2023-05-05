@@ -1,33 +1,37 @@
-<!--<div id="fitbit-trial">-->
-<!--  even spacing-->
-<mat-grid-list cols="3" rowHeight="3:1" [style.background]="'skyblue'">
-  <mat-grid-tile colspan="2" rowspan="2">
-<!--    Grid first-->
-    <div class="internalMatGrid">
-      internal grid
-      <mat-grid-list cols="2" rowHeight="200px">
-        <mat-grid-tile class="fitbit" rowspan="2"> Free via Fitbit
-        </mat-grid-tile>
-        <mat-grid-tile class="crossfit" rowspan="2"> Signup with Crossfit </mat-grid-tile>
-      </mat-grid-list>
-    </div>
-  </mat-grid-tile>
-  <mat-grid-tile class="sidebar" rowspan="2"> Subscription Options
+<div id="pagegrid">
+  <div id="areaA">A</div>
+  <div id="sidebar">
+    <div fxLayout="row wrap" >
+      <div fxFlex="100%" class="signup">
+        <form class="example-form">
+          <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width">
+              <input matInput placeholder="First name">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width">
+              <input matInput placeholder="Long Last Name That Will Be Truncated">
+            </mat-form-field></td>
+          </tr></table>
 
-  </mat-grid-tile>
-<!--  <mat-grid-tile> Grid third </mat-grid-tile>-->
-<!--  <mat-grid-tile> Grid fourth </mat-grid-tile>-->
-</mat-grid-list>
-<!--</div>-->
-<div id="crossfit-join">
-foreach generated spacing
-<mat-grid-list cols="4" rowHeight="100px">
-  <mat-grid-tile
-    *ngFor="let tile of tiles"
-    [colspan]="tile.cols"
-    [rowspan]="tile.rows"
-    [style.background]="tile.color">
-    {{tile.text}}
-  </mat-grid-tile>
-</mat-grid-list>
+          <p>
+            <mat-form-field class="example-full-width">
+              <textarea matInput placeholder="Address">1600 Amphitheatre Pkwy</textarea>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <textarea matInput placeholder="Address 2"></textarea>
+            </mat-form-field>
+          </p>
+
+
+        </form>
+      </div>
+      <div fxFlex="100%" class="members-area">
+        pistol tower footage advert assault uplink -space car digital chrome tanto augmented reality construct disposable. vehicle savant industrial grade fluidity -space drugs saturation point modem sub-orbital city military-grade hotdog papier-mache augmented reality. semiotics network towards nodal point warehouse shoes otaku -space wristwatch construct industrial grade concrete tiger-team shoes. disposable military-grade hotdog advert render-farm apophenia office cardboard media dolphin -space film otaku market. nodal point tube car monofilament footage BASE jump media numinous courier hotdog meta- bomb long-chain hydrocarbons construct. city kanji systemic 3D-printed Legba convenience store nano- smart- hacker katana euro-pop nodality Tokyo knife. gang nodal point courier wristwatch cartel math- post- nano- realism sensory augmented reality sprawl range-rover systema. chrome render-farm tattoo disposable faded euro-pop rain long-chain hydrocarbons sub-orbital receding neon cardboard gang lights.
+
+        gang refrigerator woman chrome silent pre- Chiba city numinous decay computer kanji crypto- camera. military-grade artisanal media meta- shanty town sunglasses girl sprawl nodality shanty town engine wonton soup cartel post-. j-pop marketing advert skyscraper cyber- papier-mache spook towards weathered Legba assault range-rover shoes tanto. meta- assault ablative claymore mine knife decay neon sub-orbital lights Shibuya ablative grenade BASE jump gang. franchise faded corrupted vinyl render-farm bridge semiotics smart- bridge render-farm stimulate weathered assault numinous. knife narrative A.I. uplink realism smart- sentient refrigerator grenade tattoo vehicle beef noodles office papier-mache. physical wonton soup military-grade dead systemic dead courier skyscraper apophenia sprawl apophenia ablative vehicle Shibuya. futurity fluidity euro-pop vinyl nodal point camera shanty town jeans otaku systema pistol render-farm car bomb.
+
+      </div>
+
+    </div>
+  </div>
 </div>

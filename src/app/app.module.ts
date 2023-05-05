@@ -9,6 +9,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AppRoutingModule } from './app-routing.module';
 
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {ErrorStateMatcher} from '@angular/material/core';
+
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatGridListModule} from "@angular/material/grid-list";
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -32,7 +36,9 @@ import {MatCardModule} from "@angular/material/card";
     MatButtonModule,
     MatCardModule,
     FlexLayoutModule,
-    MatGridListModule
+    MatGridListModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
