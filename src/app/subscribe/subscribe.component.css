@@ -2,7 +2,7 @@
   /*TODO this could be a class rather than an ID and can be common to home page and this page*/
   display: grid;
   width: 100%;
-  height: 90%;
+  height: 100%;
   grid-template-columns: 2fr 1fr;
 }
 
@@ -16,10 +16,11 @@
 
 .members-area {
   background-color: gold;
+  height: 50%;
 }
 
 .signup {
-  background-color: deeppink;
+  background-color: #bb7598;
   height: 50%;
 }
 
