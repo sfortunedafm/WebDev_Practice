@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
@@ -7,4 +7,5 @@ import {FormControl, Validators} from '@angular/forms';
 })
 export class CheckoutComponent {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  hide = true;
 }

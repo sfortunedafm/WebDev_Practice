@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import {MatFormFieldModule} from "@angular/material/form-field";
+
 import {MatInputModule} from "@angular/material/input";
 import {ErrorStateMatcher} from '@angular/material/core';
 
@@ -20,9 +20,12 @@ import { MatMenuModule} from "@angular/material/menu";
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {MatSliderModule} from "@angular/material/slider";
-import {MatDatepickerModule} from "@angular/material/datepicker";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import { MatNativeDateModule } from '@angular/material/core';
+import {MatIconModule} from "@angular/material/icon";
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,14 +42,16 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MatMenuModule,
     MatButtonModule,
     MatCardModule,
+    MatSliderModule,
     FlexLayoutModule,
     MatGridListModule,
-    MatFormFieldModule,
     MatInputModule,
-    MatSliderModule,
+    MatFormFieldModule,
     MatDatepickerModule,
+    MatNativeDateModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
