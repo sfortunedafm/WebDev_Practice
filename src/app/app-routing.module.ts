@@ -6,6 +6,7 @@ import {CheckoutComponent} from "./checkout/checkout.component";
 import {SubscribeComponent} from "./subscribe/subscribe.component";
 
 const routes: Routes =[
+  { path: '', redirectTo: '/blog', pathMatch: 'full' }, // TODO not working
   {path: 'blog', component: BlogComponent},
   {path: 'store', component: StoreComponent},
   {path: 'checkout', component: CheckoutComponent},

@@ -1,4 +1,5 @@
 #pagegrid {
+  /*TODO this could be a class rather than an ID and can be common to home page and this page*/
   display: grid;
   width: 100%;
   height: 90%;
