@@ -1,16 +1,82 @@
 <h1>{{title}}</h1>
 <nav>
-  <a routerLink="/home">Home</a>
-  <button mat-flat-button color="accent" [matMenuTriggerFor]="menu">Store</button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item routerLink="/store">Item 1</button>
-    <button mat-menu-item>Item 2</button>
-  </mat-menu>
-  <a routerLink="/subscribe">Subscribe</a>
-  <a routerLink="/checkout">Checkout</a>
-  <a routerLink="/blog">Blog</a>
-</nav>
-<!--<mat-slide-toggle>Toggle me!</mat-slide-toggle>-->
+<!--  <button mat-menu-item-->
+<!--          #menuTrigger2="matMenuTrigger"-->
+<!--          (mouseover)="openMyMenu(menuTrigger2)"-->
+<!--          [matMenuTriggerFor]="myMenu2"> Menu 2 </button>-->
 
+<!--  <mat-menu #myMenu2="matMenu">-->
+<!--    <ng-template matMenuContent>-->
+<!--      <button mat-menu-item>B 1</button>-->
+<!--      <button mat-menu-item>B 2</button>-->
+<!--      <button mat-menu-item>B 3</button>-->
+<!--    </ng-template>-->
+<!--  </mat-menu>-->
+  <div fxLayout="row" fxLayoutGap="16px">
 
-<router-outlet></router-outlet>
+    <div fxFlex="60" fxLayout="row" fxLayoutAlign="space-between stretch" >
+      <button mat-flat-button  routerLink="/home">Home</button>
+      <button mat-flat-button #menuTrigger2="matMenuTrigger" (mouseover)="openMyMenu(menuTrigger2)"
+              [matMenuTriggerFor]="menu">Store
+      </button>
+      <!--    appears you cannot make this button a hyperlink AND a menutrigger-->
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item [disabled]="true">Bundles</button>
+        <button mat-menu-item [disabled]="true">Accessories</button>
+        <button matTooltip="Jump to store page of all alpha products" mat-menu-item routerLink="/store"
+                [matMenuTriggerFor]="alphas">Alpha Products
+        </button>
+        <button mat-menu-item [disabled]="true">Underarmour</button>
+      </mat-menu>
+      <button mat-flat-button  routerLink="/subscribe">Subscribe</button>
+      <button mat-flat-button  routerLink="/checkout">Checkout</button>
+      <button mat-flat-button routerLink="/blog">Blog</button>
+      <mat-menu #alphas="matMenu">
+        <button matTooltip="Purchase a plan for Cup O Fightmilk" mat-menu-item routerLink="/checkout">Cup O' Fightmilk</button>
+        <button mat-menu-item [disabled]="true">Fightmilk Zero</button>
+        <button mat-menu-item [disabled]="true">Fightmilk Hard Nuts</button>
+      </mat-menu>
+<!--      <button (click)="sideNav.toggle()" mat-button>Toggle SideNav</button>-->
+<!--      <mat-drawer-container>-->
+<!--        <mat-drawer class="example-container" #sideNav mode="side" opened="false" position="end">-->
+<!--          Right drawer-->
+<!--        </mat-drawer>-->
+<!--      </mat-drawer-container>-->
+    </div>
+<!--Search Bar and Shopping Cart-->
+    <div *ngIf="show" fxFlex fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="space-evenly stretch">
+      <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="space-evenly center">
+        <mat-form-field>
+          <input type="tel" matInput placeholder="Search">
+        </mat-form-field>
+        <mat-icon>search</mat-icon>
+
+      </div>
+
+      <button mat-icon-button class="shopping_cart" aria-label="Example icon-button with menu icon">
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+    </div>
+  </div>
+<!--  <mat-menu #blog="matMenu">-->
+
+<!--  </mat-menu>-->
+<!--  <button mat-button [matMenuTriggerFor]="animals">Animal index</button>-->
+<!--  <mat-menu #animals="matMenu">-->
+<!--    <button mat-menu-item [matMenuTriggerFor]="vertebrates">Vertebrates</button>-->
+<!--  </mat-menu>-->
+<!--  <mat-menu #vertebrates="matMenu">-->
+<!--    <button mat-menu-item [matMenuTriggerFor]="fish">Fishes</button>-->
+<!--    <button mat-menu-item>Birds</button>-->
+<!--    <button mat-menu-item>Mammals</button>-->
+<!--  </mat-menu>-->
+
+  </nav>
+<!--<button (click)="sideNav.toggle()" mat-button>Toggle SideNav</button>-->
+<!--<mat-drawer-container class="example-container">-->
+<!--  <mat-drawer class="example-container" #sideNav mode="side" opened="false" position="end">-->
+<!--    Right drawer-->
+<!--  </mat-drawer>-->
+<!--</mat-drawer-container>-->
+
+  <router-outlet></router-outlet>
