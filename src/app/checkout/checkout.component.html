@@ -4,18 +4,30 @@
     payment details
     <form class="example-form">
 
-      <mat-slider>
-        <mat-hint>delivery frequency</mat-hint>
-<!--        currently works with form elements but breaks with datepicker-->
-        <input matSliderThumb>
-      </mat-slider>
-      <mat-form-field class="example-full-width">
-        <mat-label>Completely disabled</mat-label>
-        <input matInput [matDatepicker]="dp1" disabled>
-        <mat-hint>MM/DD/YYYY</mat-hint>
-        <mat-datepicker-toggle matIconSuffix [for]="dp1"></mat-datepicker-toggle>
-        <mat-datepicker #dp1></mat-datepicker>
-      </mat-form-field>
+<!--      <mat-slider >-->
+<!--        <mat-hint>delivery frequency</mat-hint>-->
+<!--&lt;!&ndash;        currently works with form elements but breaks with datepicker&ndash;&gt;-->
+<!--        <input matSliderThumb>-->
+<!--      </mat-slider>-->
+
+<!--      <mat-form-field class="example-full-width">-->
+<!--        <mat-label>Delivery Frequency</mat-label>-->
+<!--        <mat-slider showTickMarks discrete min="2" max="6" step="1"-->
+<!--                    matTooltip="Members can arrange different package frequency">-->
+<!--          &lt;!&ndash;      <mat-slider showTickMarks discrete min="2" max="6" step="1" matTooltip="Members can arrange different package frequency" [displayWith]="formatLabel">&ndash;&gt;-->
+<!--          <input matSliderThumb value="4">-->
+<!--        </mat-slider>-->
+<!--      </mat-form-field>-->
+
+
+<!--      <mat-form-field class="example-full-width" matTooltip="Members can arrange different package frequency">-->
+<!--        <mat-label>Completely disabled</mat-label>-->
+
+<!--        <input matInput [matDatepicker]="dp1" disabled>-->
+<!--        <mat-hint>MM/DD/YYYY</mat-hint>-->
+<!--        <mat-datepicker-toggle matIconSuffix [for]="dp1"></mat-datepicker-toggle>-->
+<!--        <mat-datepicker #dp1></mat-datepicker>-->
+<!--      </mat-form-field>-->
 
       <mat-form-field class="example-full-width">
 <!--  this blog post unlocked the datepicker breaking page
@@ -29,6 +41,22 @@
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
+<!--      <mat-form-field class="example-full-width"> TODO UNKNOWN wrapping as form field breaks formatting-->
+        <mat-label>Delivery Frequency</mat-label>
+        <mat-slider showTickMarks discrete min="2" max="6" step="1"
+                    matTooltip="Members can arrange different package frequency">
+          <!--      <mat-slider showTickMarks discrete min="2" max="6" step="1" matTooltip="Members can arrange different package frequency" [displayWith]="formatLabel">-->
+          <input matSliderThumb value="4">
+        </mat-slider>
+<!--      </mat-form-field>-->
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Payment Details</mat-label>
+        <input matInput #message maxlength="16" >
+
+        <mat-hint align="end">{{message.value.length}} / 16</mat-hint>
+      </mat-form-field>
+
       <mat-form-field class="example-full-width">
         <mat-label>Address</mat-label>
         <input matInput #message maxlength="256" placeholder="Message">
@@ -41,7 +69,6 @@
 
         <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
       </mat-form-field>
-
 
       <mat-form-field hintLabel="Max 10 characters" appearance="fill">
         <mat-label>First Name</mat-label>
@@ -64,6 +91,9 @@
           Email is <strong>required</strong>
         </mat-error>
       </mat-form-field>
+<!--      <button mat-stroked-button color="primary" type="submit" [disabled]="!registerForm.valid">Sign In<mat-icon>chevron_right</mat-icon></button>-->
+      <button mat-stroked-button color="primary" type="submit">Purchase as Guest<mat-icon>login</mat-icon></button>
+
       <mat-form-field class="example-full-width">
         <mat-label>password must be 8 chars long with a symbol and number</mat-label>
         <input matInput [type]="hide ? 'password' : 'text'">
@@ -71,8 +101,41 @@
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </button>
       </mat-form-field>
+
+      <button mat-stroked-button color="primary" type="submit">Sign Up and Purchase<mat-icon>verified_user</mat-icon></button>
+
     </form>
   </div>
+<!--  end main grid area-->
 
-  <div id="sidebar"></div>
+  <div id="sidebar" fxLayout="column" fxLayoutGap="8%" fxLayoutAlign="space-around"  >
+    <div id="checkout" fxFlex="60%">
+      <mat-list role="list">
+        <mat-list-item role="listitem">Item 1</mat-list-item>
+        <mat-list-item role="listitem">Item 2</mat-list-item>
+        <mat-list-item role="listitem">Item 3</mat-list-item>
+      </mat-list>
+    </div>
+    <div fxFlex="40%" class="members-area">
+      <div fxLayout="row wrap" fxLayoutGap="2%" >
+        <div fxFlex="48%" *ngFor="let num of [1,2,3,4]">
+          <mat-card class="mat-elevation-z4">
+            <mat-card-header>
+              <mat-card-title>Doggo {{num}}</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+              <p>The Shiba Inu is the smallest of the six original and ...</p>
+            </mat-card-content>
+            <!--        <mat-card-actions>-->
+            <!--          <button mat-button>LIKE</button>-->
+            <!--          <button mat-button>SHARE</button>-->
+            <!--        </mat-card-actions>-->
+          </mat-card>
+        </div>
+      </div> <!--      end division that uses fxFlex to create a 2x2 grid of cards-->
+    </div>
+
+
+  </div> <!--  end of sidebar division-->
 </div>

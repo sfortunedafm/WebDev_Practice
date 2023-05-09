@@ -7,5 +7,9 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 })
 export class CheckoutComponent {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  passwordFormControl = new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')])
   hide = true;
+  formatLabel = (value: number) => {
+    return "every " + value + " weeks";
+  };
 }
