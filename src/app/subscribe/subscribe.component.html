@@ -1,19 +1,23 @@
 <div class="pagegrid">
   <div class="areaA">
     <div fxLayout="row wrap" fxLayoutGap="16px grid">
-
       <div fxFlex="48%">
-<!--        TODO need vertical padding-->
+        <!--        TODO need vertical padding-->
         <mat-card class="mat-elevation-z4">
           <mat-card-header>
             <mat-card-title><h2>FREE TRIAL VIA FITBIT</h2></mat-card-title>
           </mat-card-header>
           <img
             mat-card-image
-            src="/assets/fightmilk-tee.jpg"
+            src="https://github.com/sfortunedafm/WebDev_Practice/blob/master/src/assets/fightmilk-tee.jpg"
           />
           <mat-card-content>
-            <p>gang refrigerator woman chrome silent pre- Chiba city numinous decay computer kanji crypto- camera. military-grade artisanal media meta- shanty town sunglasses girl sprawl nodality shanty town engine wonton soup cartel post-. j-pop</p>
+            <p>
+              gang refrigerator woman chrome silent pre- Chiba city numinous
+              decay computer kanji crypto- camera. military-grade artisanal
+              media meta- shanty town sunglasses girl sprawl nodality shanty
+              town engine wonton soup cartel post-. j-pop
+            </p>
           </mat-card-content>
           <mat-card-actions>
             <button mat-stroked-button color="accent">SIGN UP</button>
@@ -28,12 +32,14 @@
           <mat-card-header>
             <mat-card-title><h2>SIGNIN WITH CROSSFIT</h2></mat-card-title>
           </mat-card-header>
-          <img
-            mat-card-image
-            src="/assets/fightmilk-tee.jpg"
-          />
+          <img mat-card-image src="/assets/fightmilk-tee.jpg" />
           <mat-card-content>
-            <p>pistol tower footage advert assault uplink -space car digital chrome tanto construct disposable. vehicle savant industrial grade fluidity -space drugs saturation point modem sub-orbital city military-grade hotdog papier-mache augmented reality. </p>
+            <p>
+              pistol tower footage advert assault uplink -space car digital
+              chrome tanto construct disposable. vehicle savant industrial grade
+              fluidity -space drugs saturation point modem sub-orbital city
+              military-grade hotdog papier-mache augmented reality.
+            </p>
           </mat-card-content>
           <mat-card-actions>
             <button mat-stroked-button color="accent">SIGN UP</button>
@@ -43,62 +49,94 @@
           </mat-card-actions>
         </mat-card>
       </div>
-    </div> <!--    end of internal flex div that displays 2 cards-->
-  </div> <!--  end of lhs 60% of page division-->
+    </div>
+    <!--    end of internal flex div that displays 2 cards-->
+  </div>
+  <!--  end of lhs 60% of page division-->
 
   <div class="sidebar">
-    <div fxLayout="column" fxLayoutGap="8px" fxLayoutAlign="space-around center" >
+    <div
+      fxLayout="column"
+      fxLayoutGap="8px"
+      fxLayoutAlign="space-around center"
+    >
       <div class="signup">
-        <form class="example-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <form
+          class="example-form"
+          [formGroup]="registerForm"
+          (ngSubmit)="onSubmit()"
+        >
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" name="email" type="email" />
+            <mat-error
+              *ngIf="registerForm.controls['email'].errors?.['required']"
+            >
+              Email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="registerForm.controls['email'].errors?.['email']">
+              Please enter a valid email address
+            </mat-error>
+          </mat-form-field>
 
-              <mat-form-field class="example-full-width">
-                <mat-label>Email</mat-label>
-                <input matInput formControlName="email" name="email" type="email">
-                   <mat-error *ngIf="registerForm.controls['email'].errors?.['required']">
-                    Email is <strong>required</strong>
-                  </mat-error>
-                  <mat-error *ngIf="registerForm.controls['email'].errors?.['email']">
-                    Please enter a valid email address
-                  </mat-error>
-              </mat-form-field>
-
-              <mat-form-field class="example-full-width">
-                <mat-label>Password</mat-label>
-                <input matInput formControlName="password" name="password" type="password">
-                <mat-error *ngIf="registerForm.controls['password'].errors?.['pattern']">Password must be a combination of lower-case, upper-case, numbers and at least 9 characters long</mat-error>
-                <!--^ angular 14+ way of form validation-->
-              </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input
+              matInput
+              formControlName="password"
+              name="password"
+              type="password"
+            />
+            <mat-error
+              *ngIf="registerForm.controls['password'].errors?.['pattern']"
+              >Password must be a combination of lower-case, upper-case, numbers
+              and at least 9 characters long</mat-error
+            >
+            <!--^ angular 14+ way of form validation-->
+          </mat-form-field>
           <div class="buttonWrapper">
-            <button mat-stroked-button color="primary" type="submit" [disabled]="!registerForm.valid">Sign In
+            <button
+              mat-stroked-button
+              color="primary"
+              type="submit"
+              [disabled]="!registerForm.valid"
+            >
+              Sign In
               <mat-icon>chevron_right</mat-icon>
             </button>
           </div>
         </form>
-      </div> <!-- end sign up div-->
+      </div>
+      <!-- end sign up div-->
       <div class="members-area">
-      <h2>Member Exclusive Content</h2>
-        <div fxLayout="row wrap" fxLayoutGap="2%" >
-          <div fxFlex="46%" *ngFor="let num of [1,2,3,4]">
+        <h2>Member Exclusive Content</h2>
+        <div fxLayout="row wrap" fxLayoutGap="2%">
+          <div fxFlex="46%" *ngFor="let num of [1, 2, 3, 4]">
             <mat-card class="mat-elevation-z4">
               <mat-card-header>
                 <mat-card-title-group>
-                  <mat-card-title>Blog {{num}}</mat-card-title>
+                  <mat-card-title>Blog {{ num }}</mat-card-title>
                   <img
                     mat-card-sm-image
-                    src="../../assets/thumbs/{{num}}.png"
+                    src="https://material.angular.io/assets/img/examples/shiba2.jpg"
                   />
                 </mat-card-title-group>
               </mat-card-header>
 
               <mat-card-content>
-                <p>Lorem ipsum dolor sit amet. Aut ducimus sunt ex esse nihil qui doloremque totam et atque rerum et maxime voluptatem</p>
+                <p>
+                  Lorem ipsum dolor sit amet. Aut ducimus sunt ex esse nihil qui
+                  doloremque totam et atque rerum et maxime voluptatem
+                </p>
               </mat-card-content>
-
             </mat-card>
           </div>
         </div>
-      </div> <!--  end of blog post grid division-->
-
-    </div> <!--      end of sidebar vertical division-->
-  </div>  <!--end of sidebar division-->
-</div> <!--end of page grid division-->
+      </div>
+      <!--  end of blog post grid division-->
+    </div>
+    <!--      end of sidebar vertical division-->
+  </div>
+  <!--end of sidebar division-->
+</div>
+<!--end of page grid division-->
