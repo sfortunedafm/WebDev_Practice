@@ -1,26 +1,16 @@
 <h1>{{title}}</h1>
 <nav>
-<!--  <button mat-menu-item-->
-<!--          #menuTrigger2="matMenuTrigger"-->
-<!--          (mouseover)="openMyMenu(menuTrigger2)"-->
-<!--          [matMenuTriggerFor]="myMenu2"> Menu 2 </button>-->
 
-<!--  <mat-menu #myMenu2="matMenu">-->
-<!--    <ng-template matMenuContent>-->
-<!--      <button mat-menu-item>B 1</button>-->
-<!--      <button mat-menu-item>B 2</button>-->
-<!--      <button mat-menu-item>B 3</button>-->
-<!--    </ng-template>-->
-<!--  </mat-menu>-->
   <div fxLayout="row" fxLayoutGap="16px">
 
     <div fxFlex="60" fxLayout="row" fxLayoutAlign="space-between stretch" >
-      <button mat-flat-button  routerLink="/home">Home</button>
+      <button mat-flat-button  routerLink="/video">Home</button>
+      <button mat-flat-button  routerLink="/subscribe">Subscribe</button>
       <button mat-flat-button #menuTrigger2="matMenuTrigger" (mouseover)="openMyMenu(menuTrigger2)"
               [matMenuTriggerFor]="menu">Store
       </button>
       <!--    appears you cannot make this button a hyperlink AND a menutrigger-->
-      <mat-menu #menu="matMenu">
+      <mat-menu #menu="matMenu" class="customize">
         <button mat-menu-item [disabled]="true">Bundles</button>
         <button mat-menu-item [disabled]="true">Accessories</button>
         <button matTooltip="Jump to store page of all alpha products" mat-menu-item routerLink="/store"
@@ -28,10 +18,10 @@
         </button>
         <button mat-menu-item [disabled]="true">Underarmour</button>
       </mat-menu>
-      <button mat-flat-button  routerLink="/subscribe">Subscribe</button>
+
       <button mat-flat-button  routerLink="/checkout">Checkout</button>
       <button mat-flat-button routerLink="/blog">Blog</button>
-      <mat-menu #alphas="matMenu">
+      <mat-menu #alphas="matMenu" class="customize">
         <button matTooltip="Purchase a plan for Cup O Fightmilk" mat-menu-item routerLink="/checkout">Cup O' Fightmilk</button>
         <button mat-menu-item [disabled]="true">Fightmilk Zero</button>
         <button mat-menu-item [disabled]="true">Fightmilk Hard Nuts</button>
@@ -44,18 +34,22 @@
 <!--      </mat-drawer-container>-->
     </div>
 <!--Search Bar and Shopping Cart-->
-    <div *ngIf="show" fxFlex fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="space-evenly stretch">
+    <div *ngIf="showStoreNav" fxFlex fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="space-evenly stretch">
       <div fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="space-evenly center">
         <mat-form-field>
-          <input type="tel" matInput placeholder="Search">
+          <input type="search" matInput placeholder="Search">
         </mat-form-field>
         <mat-icon>search</mat-icon>
 
       </div>
 
-      <button mat-icon-button class="shopping_cart" aria-label="Example icon-button with menu icon">
-        <mat-icon>shopping_cart</mat-icon>
-      </button>
+      <div fxLayout="column" fxLayoutGap="8px" fxLayoutAlign="none">
+        <button mat-raised-button color="accent" routerLink="/store">
+          <mat-icon>shopping_cart</mat-icon>
+          <span *ngIf="showCart">add to cart and continue shopping</span>
+        </button>
+
+      </div>
     </div>
   </div>
 <!--  <mat-menu #blog="matMenu">-->

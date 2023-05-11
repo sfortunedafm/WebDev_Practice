@@ -10,25 +10,27 @@ import { Router, NavigationEnd } from '@angular/router'
 })
 export class AppComponent {
   title = 'FightMilk';
-  show = true;
+  showStoreNav = false;
+  showCart = false;
   openMyMenu(menuTrigger: MatMenuTrigger) {
     menuTrigger.openMenu();
   }
 
-  handleRouteChange = () => {
+  displayStoreNav = () => {
     // console.log(this.router.url.includes('store'));
     // if (this.router.url.includes('store')) {
     //  console.log('on store');
     // }
-    this.show = (this.router.url.includes('store') || this.router.url.includes('checkout'));
+    this.showStoreNav = (this.router.url.includes('store') || this.router.url.includes('checkout'));
+    this.showCart = this.router.url.includes('checkout');
   }
 
-  expandNavMenu = () => {
-    return this.router.url.includes('store');
-
+  checkoutContinue = () => {
+    this.showCart = this.router.url.includes('checkout');
   }
+
   constructor(private router: Router) {
     // router.events.subscribe((val) => console.log(val));
-    router.events.subscribe( (event) => ( event instanceof NavigationEnd ) && this.handleRouteChange() )
+    router.events.subscribe( (event) => ( event instanceof NavigationEnd ) && this.displayStoreNav() )
   }
 }

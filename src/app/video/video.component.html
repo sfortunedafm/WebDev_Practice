@@ -1,0 +1,32 @@
+<div class="pagegrid">
+
+    <div class="areaA">
+
+
+      <video controls width="550" #myVideo>
+        <source src="/assets/pepperoni_hug_spot.mp4"/>
+      </video>
+    </div>
+
+
+  <div class="sidebar">
+
+      <h2>Member Exclusive Content</h2>
+<!--    if you wrap below in members area class it fucks up the formatting-->
+    <div fxLayout="column wrap" fxLayoutAlign="space-evenly center">
+      <div fxFlex="30%" *ngFor="let num of [1,2,3]">
+        <mat-card class="mat-elevation-z4">
+          <mat-card-header>
+            <mat-card-title>Blog {{num}}</mat-card-title>
+          </mat-card-header>
+
+          <mat-card-content>
+            <p>Lorem ipsum dolor sit amet. 33 impedit rerum qui adipisci nobis At dolor nulla hic itaque voluptatem. Quo modi exercitationem ....</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+  </div>
+
+</div>

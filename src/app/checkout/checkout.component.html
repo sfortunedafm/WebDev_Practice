@@ -1,39 +1,11 @@
-<div id="checkoutgrid">
-  <div id="areaA">
+<div class="checkoutGrid">
+  <div class="areaA">
 <!--    TODO this section needs to also be a grid to map to the wireframes but that might not work with input functionality-->
-    payment details
-    <form class="example-form">
 
-<!--      <mat-slider >-->
-<!--        <mat-hint>delivery frequency</mat-hint>-->
-<!--&lt;!&ndash;        currently works with form elements but breaks with datepicker&ndash;&gt;-->
-<!--        <input matSliderThumb>-->
-<!--      </mat-slider>-->
-
-<!--      <mat-form-field class="example-full-width">-->
-<!--        <mat-label>Delivery Frequency</mat-label>-->
-<!--        <mat-slider showTickMarks discrete min="2" max="6" step="1"-->
-<!--                    matTooltip="Members can arrange different package frequency">-->
-<!--          &lt;!&ndash;      <mat-slider showTickMarks discrete min="2" max="6" step="1" matTooltip="Members can arrange different package frequency" [displayWith]="formatLabel">&ndash;&gt;-->
-<!--          <input matSliderThumb value="4">-->
-<!--        </mat-slider>-->
-<!--      </mat-form-field>-->
-
-
-<!--      <mat-form-field class="example-full-width" matTooltip="Members can arrange different package frequency">-->
-<!--        <mat-label>Completely disabled</mat-label>-->
-
-<!--        <input matInput [matDatepicker]="dp1" disabled>-->
-<!--        <mat-hint>MM/DD/YYYY</mat-hint>-->
-<!--        <mat-datepicker-toggle matIconSuffix [for]="dp1"></mat-datepicker-toggle>-->
-<!--        <mat-datepicker #dp1></mat-datepicker>-->
-<!--      </mat-form-field>-->
+    <form class="example-form" [formGroup]="purchaseForm" (ngSubmit)="onSubmit()">
 
       <mat-form-field class="example-full-width">
-<!--  this blog post unlocked the datepicker breaking page
-      https://www.itsolutionstuff.com/post/angular-material-date-range-picker-exampleexample.html
-      I think additional modules were needed
--->
+
         <mat-label>Start my plan on</mat-label>
         <input matInput [matDatepicker]="picker">
         <mat-hint>MM/DD/YYYY</mat-hint>
@@ -52,9 +24,10 @@
 
       <mat-form-field class="example-full-width">
         <mat-label>Payment Details</mat-label>
-        <input matInput #message maxlength="16" >
-
+<!--        <input matInput maxlength="16" >-->
+        <input matInput formControlName="payment" name="payment">
         <mat-hint align="end">{{message.value.length}} / 16</mat-hint>
+        <mat-error *ngIf="purchaseForm.controls['payment'].errors?.['required']">Please enter payment details</mat-error>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
@@ -72,43 +45,66 @@
 
       <mat-form-field hintLabel="Max 10 characters" appearance="fill">
         <mat-label>First Name</mat-label>
-        <input matInput #input maxlength="10" placeholder="Ex. Nougat">
-        <mat-hint align="end">{{input.value.length}}/10</mat-hint>
+        <input matInput formControlName="fname" name="first name">
+<!--        <mat-hint align="end">{{input.value.length}}/10</mat-hint>-->
+        <mat-error *ngIf="purchaseForm.controls['lname'].errors?.['required']">
+          <strong>required</strong>
+        </mat-error>
       </mat-form-field>
 
       <mat-form-field appearance="fill">
         <mat-label>Last Name</mat-label>
-        <input matInput #input maxlength="10" placeholder="Ex. Nougat">
-        <mat-hint align="end">{{input.value.length}}/10</mat-hint>
+        <input matInput formControlName="lname" name="surname">
+<!--        <mat-hint align="end">{{input.value.length}}/10</mat-hint>-->
+        <mat-error *ngIf="purchaseForm.controls['lname'].errors?.['required']">
+          <strong>required</strong>
+        </mat-error>
       </mat-form-field>
+
       <mat-form-field class="example-full-width">
         <mat-label>Email</mat-label>
-        <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
-        <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-          Please enter a valid email address
-        </mat-error>
-        <mat-error *ngIf="emailFormControl.hasError('required')">
+        <input matInput formControlName="email" name="email">
+        <mat-error *ngIf="purchaseForm.controls['email'].errors?.['required']">
           Email is <strong>required</strong>
         </mat-error>
+        <mat-error *ngIf="purchaseForm.controls['email'].errors?.['email']">
+          Please enter a valid email address
+        </mat-error>
       </mat-form-field>
-<!--      <button mat-stroked-button color="primary" type="submit" [disabled]="!registerForm.valid">Sign In<mat-icon>chevron_right</mat-icon></button>-->
-      <button mat-stroked-button color="primary" type="submit">Purchase as Guest<mat-icon>login</mat-icon></button>
+
+
+      <div class="buttonWrapper">
+        <button mat-stroked-button color="primary" type="submit">Purchase as Guest
+          <mat-icon>login</mat-icon>
+        </button>
+      </div>
+
 
       <mat-form-field class="example-full-width">
-        <mat-label>password must be 8 chars long with a symbol and number</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'">
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
+        <mat-label>password must be 9 chars long with a symbol and number</mat-label>
+        <input matInput formControlName="password" name="password">
+<!--        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">-->
+<!--          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>-->
+<!--        </button>-->
+<!--        <mat-error *ngIf="passwordFormControl.hasError('pattern')">Password must be a combination of lower-case, upper-case, numbers and at least 9 characters long</mat-error>-->
+        <mat-error *ngIf="purchaseForm.controls['password'].errors?.['required']">Password is required</mat-error>
       </mat-form-field>
 
-      <button mat-stroked-button color="primary" type="submit">Sign Up and Purchase<mat-icon>verified_user</mat-icon></button>
+      <div class="buttonWrapper">
+        <button mat-stroked-button color="primary"
+                type="submit" [disabled]="purchaseForm.controls['password'].errors?.['required']">
+          Sign Up and Purchase
+          <mat-icon>verified_user</mat-icon>
+        </button>
+        <span *ngIf="purchaseForm.controls['password'].errors?.['required']"> <mat-icon
+          matTooltip="enter a password to register an account">question_mark</mat-icon></span>
+      </div>
 
     </form>
   </div>
 <!--  end main grid area-->
 
-  <div id="sidebar" fxLayout="column" fxLayoutGap="8%" fxLayoutAlign="space-around"  >
+  <div class="sidebar" fxLayout="column" fxLayoutGap="8%" fxLayoutAlign="space-around"  >
     <div id="checkout" fxFlex="60%">
       <mat-list role="list">
         <mat-list-item role="listitem">Item 1</mat-list-item>
@@ -118,19 +114,22 @@
     </div>
     <div fxFlex="40%" class="members-area">
       <div fxLayout="row wrap" fxLayoutGap="2%" >
-        <div fxFlex="48%" *ngFor="let num of [1,2,3,4]">
+        <div fxFlex="46%" *ngFor="let num of [1,2,3,4]">
           <mat-card class="mat-elevation-z4">
             <mat-card-header>
-              <mat-card-title>Doggo {{num}}</mat-card-title>
+              <mat-card-title-group>
+                <mat-card-title>Blog {{num}}</mat-card-title>
+                <img
+                  mat-card-sm-image
+                  src="../../assets/thumbs/{{num}}.png"
+                />
+              </mat-card-title-group>
             </mat-card-header>
 
             <mat-card-content>
-              <p>The Shiba Inu is the smallest of the six original and ...</p>
+              <p>Lorem ipsum dolor sit amet. Aut ducimus sunt ex esse  ...</p>
             </mat-card-content>
-            <!--        <mat-card-actions>-->
-            <!--          <button mat-button>LIKE</button>-->
-            <!--          <button mat-button>SHARE</button>-->
-            <!--        </mat-card-actions>-->
+
           </mat-card>
         </div>
       </div> <!--      end division that uses fxFlex to create a 2x2 grid of cards-->

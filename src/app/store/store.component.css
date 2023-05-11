@@ -3,7 +3,29 @@
 }
 
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.storeGrid {
+  display: grid;
+  width: 100%;
+  height: 90%;
+  grid-template-columns: fit-content(80%) fit-content(20%);
 }
+
+.storeSidebar {
+  grid-column: 2;
+
+}
+/*TODO FUCK CSS GRID*/
+/*.storeGrid {*/
+/*  display: grid;*/
+/*  width: 100%;*/
+/*  height: 90%;*/
+/*  grid-template-columns: 4fr 1fr;*/
+/*}*/
+
+/*.storeDisplay {*/
+/*  grid-column: 1 / 2;*/
+/*}*/
+
+/*.membersAreaStore {*/
+/*  grid-column: 5;*/
+/*}*/

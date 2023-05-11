@@ -1,25 +1,65 @@
 <!--see this blog post for explanation on the resizing employed below https://www.zoaibkhan.com/blog/create-a-responsive-card-grid-in-angular-using-flex-layout-part-1/-->
-<div class="content">
-  <div fxLayout="row wrap" fxLayoutGap="16px grid">
-    <div fxFlex="33%" *ngFor="let num of [1,2,3]">
-      <mat-card class="mat-elevation-z4">
-        <mat-card-header>
-          <mat-card-title>Doggo {{num}}</mat-card-title>
-        </mat-card-header>
-        <img
-          mat-card-image
-          src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-        />
-        <mat-card-content>
-          <p>The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-            A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-            bred for hunting.</p>
-        </mat-card-content>
-<!--        <mat-card-actions>-->
-<!--          <button mat-button>LIKE</button>-->
-<!--          <button mat-button>SHARE</button>-->
-<!--        </mat-card-actions>-->
-      </mat-card>
+<div class="storeGrid">
+  <div class="areaA">
+    <div class="content">
+      <div fxLayout="row wrap" fxLayoutGap="16px grid">
+        <div fxFlex="33%" *ngFor="let num of [1,2,3]">
+          <mat-card class="mat-elevation-z4">
+            <mat-card-header>
+              <mat-card-title>Product {{num}}</mat-card-title>
+            </mat-card-header>
+
+            <img
+              mat-card-image
+              src="../../assets/products/{{num}}.png"
+            />
+            <mat-card-content>
+              <p>Lorem ipsum dolor sit amet. 33 impedit rerum qui adipisci nobis At dolor nulla hic itaque voluptatem. Quo modi exercitationem ...</p>
+            </mat-card-content>
+            <!--        <mat-card-actions>-->
+            <!--          <button mat-button>LIKE</button>-->
+            <!--          <button mat-button>SHARE</button>-->
+            <!--        </mat-card-actions>-->
+          </mat-card>
+        </div>
+      </div>
     </div>
+  </div> <!--end of store display division-->
+  <div class="sidebar">
+
+      <div fxLayout="column wrap" fxLayoutAlign="space-evenly center">
+
+        <div fxFlex="30%" *ngFor="let num of [1,2,3]">
+          <mat-card class="mat-elevation-z4">
+            <mat-card-header>
+              <mat-card-title>Blog {{num}}</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+              <p>Lorem ipsum dolor sit amet. Aut ducimus sunt ex esse nihil qui doloremque totam et...</p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <!--      <div fxLayout="column wrap" fxLayoutAlign="space-evenly center" fxLayoutGap="16px grid">-->
+<!--        <div fxFlex="30%" *ngFor="let num of [1,2,3]">-->
+<!--          <mat-card class="blog-card">-->
+<!--            <mat-card-header>-->
+<!--              <mat-card-title>Blog {{num}}</mat-card-title>-->
+<!--            </mat-card-header>-->
+<!--&lt;!&ndash;            <img&ndash;&gt;-->
+<!--&lt;!&ndash;              mat-card-image&ndash;&gt;-->
+<!--&lt;!&ndash;              src="../../assets/header_imgs/{{num}}.png"&ndash;&gt;-->
+<!--&lt;!&ndash;            />&ndash;&gt;-->
+<!--            <mat-card-content>-->
+<!--              <p>The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.-->
+<!--                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally-->
+<!--                bred for hunting.</p>-->
+<!--            </mat-card-content>-->
+<!--          </mat-card>-->
+<!--        </div>-->
+
+<!--      </div> &lt;!&ndash;    end of broken grid of blog links &ndash;&gt;-->
+
   </div>
-</div>
+</div> <!--end of page grid-->

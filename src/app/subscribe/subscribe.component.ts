@@ -10,7 +10,7 @@ export interface Tile {
 @Component({
   selector: 'app-subscribe',
   templateUrl: './subscribe.component.html',
-  styleUrls: ['./subscribe.component.css']
+  styleUrls: ['./subscribe.component.css','../app.component.css']
 })
 export class SubscribeComponent {
   registerForm = new FormGroup({
@@ -18,7 +18,7 @@ export class SubscribeComponent {
     // confirmPassword: new FormControl('', Validators.required), // uncomment if repeat password field desired
     password: new FormControl('', [Validators.required, Validators.pattern('^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z]).{8,}$')])
   });
-
+  hide = true;
   onSubmit(): void {
     console.log("button pressed");
     console.log(this.registerForm.value);

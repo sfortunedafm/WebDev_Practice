@@ -1,0 +1,15 @@
+
+
+.members-area {
+  /*TODO this class is common also to subscribe, but the height value is different*/
+  /*must be a better way of doing this in CSS*/
+  background-color: gold;
+  height: 100%;
+  width: 95%;
+}
+video {
+  width: 85%;
+  max-height: 80%;
+  /*position: relative;*/
+  padding: 2%;
+}

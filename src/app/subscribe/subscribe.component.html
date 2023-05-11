@@ -1,12 +1,12 @@
-<div id="pagegrid">
-  <div id="areaA">
+<div class="pagegrid">
+  <div class="areaA">
     <div fxLayout="row wrap" fxLayoutGap="16px grid">
 
       <div fxFlex="48%">
 <!--        TODO need vertical padding-->
         <mat-card class="mat-elevation-z4">
           <mat-card-header>
-            <mat-card-title>FREE TRIAL VIA FITBIT</mat-card-title>
+            <mat-card-title><h2>FREE TRIAL VIA FITBIT</h2></mat-card-title>
           </mat-card-header>
           <img
             mat-card-image
@@ -26,7 +26,7 @@
       <div fxFlex="48%">
         <mat-card class="mat-elevation-z4">
           <mat-card-header>
-            <mat-card-title>SIGNIN WITH CROSSFIT</mat-card-title>
+            <mat-card-title><h2>SIGNIN WITH CROSSFIT</h2></mat-card-title>
           </mat-card-header>
           <img
             mat-card-image
@@ -45,22 +45,10 @@
       </div>
     </div> <!--    end of internal flex div that displays 2 cards-->
   </div> <!--  end of lhs 60% of page division-->
-  <div id="sidebar">
-    <div fxLayout="row wrap" >
-      <div fxFlex="100%" class="signup">
 
-
-<!--below is a fancier way of including a password field-->
-<!--          <mat-form-field class="example-full-width">-->
-<!--            <mat-label>create password: must be 8 chars long with a symbol and number</mat-label>-->
-<!--            <input matInput formControlName="password" name="password" [type]="hide ? 'password' : 'text'">-->
-<!--            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">-->
-<!--              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>-->
-<!--            </button>-->
-<!--            <mat-error></mat-error>-->
-<!--          </mat-form-field>-->
-
-
+  <div class="sidebar">
+    <div fxLayout="column" fxLayoutGap="8px" fxLayoutAlign="space-around center" >
+      <div class="signup">
         <form class="example-form" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
               <mat-form-field class="example-full-width">
@@ -80,28 +68,37 @@
                 <mat-error *ngIf="registerForm.controls['password'].errors?.['pattern']">Password must be a combination of lower-case, upper-case, numbers and at least 9 characters long</mat-error>
                 <!--^ angular 14+ way of form validation-->
               </mat-form-field>
-
-<!--              <mat-form-field class="example-full-width">-->
-<!--                <mat-label>Confirm Password</mat-label>-->
-<!--                <input matInput formControlName="confirmPassword" name="confirmPassword" type="password">-->
-<!--                <mat-error *ngIf="registerForm.value.confirmPassword">Passwords do not match.</mat-error>-->
-<!--              </mat-form-field>-->
-
-              <button mat-stroked-button color="primary" type="submit" [disabled]="!registerForm.valid">Sign In<mat-icon>chevron_right</mat-icon></button>
-
+          <div class="buttonWrapper">
+            <button mat-stroked-button color="primary" type="submit" [disabled]="!registerForm.valid">Sign In
+              <mat-icon>chevron_right</mat-icon>
+            </button>
+          </div>
         </form>
       </div> <!-- end sign up div-->
-      <div fxFlex="100%" class="members-area">
-        <mat-grid-list cols="2" rowHeight="1:1">
-          <mat-grid-tile>Blog Post 1</mat-grid-tile>
-          <mat-grid-tile>Blog Post 2</mat-grid-tile>
-          <mat-grid-tile>Blog Post 3</mat-grid-tile>
-          <mat-grid-tile>Blog Post 4</mat-grid-tile>
-        </mat-grid-list>
-      </div>
+      <div class="members-area">
+      <h2>Member Exclusive Content</h2>
+        <div fxLayout="row wrap" fxLayoutGap="2%" >
+          <div fxFlex="46%" *ngFor="let num of [1,2,3,4]">
+            <mat-card class="mat-elevation-z4">
+              <mat-card-header>
+                <mat-card-title-group>
+                  <mat-card-title>Blog {{num}}</mat-card-title>
+                  <img
+                    mat-card-sm-image
+                    src="../../assets/thumbs/{{num}}.png"
+                  />
+                </mat-card-title-group>
+              </mat-card-header>
 
+              <mat-card-content>
+                <p>Lorem ipsum dolor sit amet. Aut ducimus sunt ex esse nihil qui doloremque totam et atque rerum et maxime voluptatem</p>
+              </mat-card-content>
 
+            </mat-card>
+          </div>
+        </div>
+      </div> <!--  end of blog post grid division-->
 
-    </div>
-  </div>
-</div>
+    </div> <!--      end of sidebar vertical division-->
+  </div>  <!--end of sidebar division-->
+</div> <!--end of page grid division-->

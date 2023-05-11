@@ -28,6 +28,9 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatIconModule} from "@angular/material/icon";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatListModule} from "@angular/material/list";
+import { VideoComponent } from './video/video.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +38,7 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     StoreComponent,
     SubscribeComponent,
     CheckoutComponent,
+    VideoComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -55,7 +59,8 @@ import {MatSidenavModule} from "@angular/material/sidenav";
     ReactiveFormsModule,
     MatIconModule,
     MatTooltipModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
